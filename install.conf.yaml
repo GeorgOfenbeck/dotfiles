@@ -1,5 +1,7 @@
 - clean: ['~']
-
+- defaults:
+    link:
+      relink: true
 - link:
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
@@ -13,4 +15,6 @@
     ~/.hammerspoon:
       if: '[ `uname` = Darwin ]'
       path: hammerspoon
-
+    ~/.installp10k: installp10k
+- shell:
+  - bash ~/.installp10k

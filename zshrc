@@ -77,7 +77,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf-tab)
+plugins=(git fzf-tab zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -117,8 +117,10 @@ alias cdc='cd ~/code'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias k='kubectl'
 alias tf='terraform'
+alias tfa='terraform apply'
+alias tfp='terraform plan'
 alias gw='./gradlew'
-
+alias cat='bat'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/taaofge1/.sdkman"
@@ -143,3 +145,28 @@ eval $(thefuck --alias)
 #{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}
 #]}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# remove ls and directory completion highlight color
+_ls_colors=':ow=01;33'
+zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
+LS_COLORS+=$_ls_colors
+
+# remove ls and directory completion highlight color
+_ls_colors=':ow=01;33'
+zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
+LS_COLORS+=$_ls_colors
+
+# remove ls and directory completion highlight color
+_ls_colors=':ow=01;33'
+zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
+LS_COLORS+=$_ls_colors
+
+# remove ls and directory completion highlight color
+_ls_colors=':ow=01;33'
+zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
+LS_COLORS+=$_ls_colors
+
+# remove ls and directory completion highlight color
+_ls_colors=':ow=01;33'
+zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
+LS_COLORS+=$_ls_colors
