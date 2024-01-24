@@ -1,6 +1,11 @@
 #!/bin/sh
 
 zshrc() {
+    
+    echo "==========================================================="
+    echo "             cloning fzf-tab                               "
+    echo "-----------------------------------------------------------"
+    git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
     echo "==========================================================="
     echo "             cloning zsh-autosuggestions                   "
     echo "-----------------------------------------------------------"
