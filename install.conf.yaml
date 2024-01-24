@@ -10,4 +10,7 @@
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
     ~/.p10k.zsh: p10k.zsh
+    ~/.hammerspoon:
+      if: '[ `uname` = Darwin ]'
+      path: hammerspoon
 
