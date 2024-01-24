@@ -132,11 +132,11 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 export PATH="/Users/taaofge1/.docker/bin:$PATH"
 
-PATH=$(pyenv root)/shims:$PATH
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-pyenv shell 2.7.18 
+#PATH=$(pyenv root)/shims:$PATH
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+#pyenv shell 2.7.18 
 
 eval $(thefuck --alias)
 
