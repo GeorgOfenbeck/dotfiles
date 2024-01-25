@@ -137,7 +137,7 @@ export PATH="/Users/taaofge1/.docker/bin:$PATH"
 #eval "$(pyenv init -)"
 #pyenv shell 2.7.18 
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 #hidutil property --set '{"UserKeyMapping":[
 #{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},
