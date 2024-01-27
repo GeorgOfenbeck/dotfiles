@@ -5,9 +5,9 @@
 - link:
     ~/.fonts: fonts
     ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-        path: ssh/config
-        create: true
+#    ~/.ssh/config:
+#        path: ssh/config
+#        create: true
     ~/.vimrc: vimrc
     ~/.zprofile: zprofile
     ~/.zshenv: zshenv
