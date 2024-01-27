@@ -3,6 +3,7 @@
     link:
       relink: true
 - link:
+    ~/.fonts: fonts
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
         path: ssh/config
@@ -19,4 +20,19 @@
       path: hammerspoon
     ~/.installp10k: installp10k
 - shell:
-  - bash ~/.installp10k
+  - description: install fonts
+    command: |
+      if [ "$(uname -s)" = "Linux" ]; then
+        sudo apt install fontconfig
+        sudo fc-cache -f -v
+      fi
+      if [ "$(uname -s)" = "Darwin" ]; then
+        brew tap homebrew/cask-fonts
+        brew cask install font-hack-nerd-font
+      fi
+    stdout: true
+    stdin: true
+- shell:
+  - description: install powerlevel10k
+    command: |
+      bash ~/.installp10k
