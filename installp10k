@@ -19,13 +19,20 @@ zshrc() {
     echo "-----------------------------------------------------------"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
+updaterc() {
+	if [ -f "/etc/zsh/zshrc" ] && [[ "$(cat /etc/zsh/zshrc)" != *"$1"* ]]; then
+		echo "Updating /etc/zsh/zshrc"
+		echo -e "$1" >>/etc/zsh/zshrc
+	fi
+}
+
+
 
 zshrc
 
 # make directly highlighting readable - needs to be after zshrc line
-echo "" >> ~/.zshrc
-echo "# remove ls and directory completion highlight color" >> ~/.zshrc
-echo "_ls_colors=':ow=01;33'" >> ~/.zshrc
-echo 'zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"' >> ~/.zshrc
-echo 'LS_COLORS+=$_ls_colors' >> ~/.zshrc
+updaterc "# remove ls and directory completion highlight color"
+updaterc "_ls_colors=':ow=01;33'" 
+updaterc 'zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"'
+updaterc 'LS_COLORS+=$_ls_colors'
 source ~/.zshrc

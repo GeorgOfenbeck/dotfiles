@@ -145,27 +145,3 @@ export PATH="/Users/taaofge1/.docker/bin:$PATH"
 #]}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# remove ls and directory completion highlight color
-_ls_colors=':ow=01;33'
-zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
-LS_COLORS+=$_ls_colors
-
-# remove ls and directory completion highlight color
-_ls_colors=':ow=01;33'
-zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
-LS_COLORS+=$_ls_colors
-
-# remove ls and directory completion highlight color
-_ls_colors=':ow=01;33'
-zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
-LS_COLORS+=$_ls_colors
-
-# remove ls and directory completion highlight color
-_ls_colors=':ow=01;33'
-zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
-LS_COLORS+=$_ls_colors
-
-# remove ls and directory completion highlight color
-_ls_colors=':ow=01;33'
-zstyle ":completion:*:default" list-colors "${(s.:.)_ls_colors}"
-LS_COLORS+=$_ls_colors

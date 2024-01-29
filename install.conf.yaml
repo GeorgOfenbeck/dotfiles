@@ -23,7 +23,7 @@
   - description: install fonts
     command: |
       if [ "$(uname -s)" = "Linux" ]; then
-        sudo apt install fontconfig
+        sudo apt install -y fontconfig
         sudo fc-cache -f -v
       fi
       if [ "$(uname -s)" = "Darwin" ]; then
