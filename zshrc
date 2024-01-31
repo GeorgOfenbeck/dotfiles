@@ -145,3 +145,6 @@ export PATH="/Users/taaofge1/.docker/bin:$PATH"
 #]}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
+# Created by `pipx` on 2024-01-30 08:58:47
+export PATH="$PATH:/Users/taaofge1/.local/bin"
