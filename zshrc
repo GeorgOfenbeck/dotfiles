@@ -119,7 +119,9 @@ alias tf='terraform'
 alias tfa='terraform apply'
 alias tfp='terraform plan'
 alias gw='./gradlew'
-alias cat='bat'
+if command -v bat >/dev/null 2>&1; then
+  alias cat='bat'
+fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/taaofge1/.sdkman"
