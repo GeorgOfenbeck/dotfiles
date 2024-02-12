@@ -37,3 +37,7 @@ hs.hotkey.bind({"alt", "shift", "cmd", "ctrl"}, "8", open_app("Microsoft Teams (
 hs.hotkey.bind({"alt", "shift", "cmd", "ctrl"}, "0", open_app("Microsoft Outlook"))
 hs.hotkey.bind({"alt", "shift", "cmd", "ctrl"}, "9", open_app("KeepassXC"))
 --- end quick open applications˛˛˛˛˛˛˛˛
+
+hs.hotkey.bind({"cmd"}, "h", function()
+    -- Do nothing (disable Command + H)
+end)
