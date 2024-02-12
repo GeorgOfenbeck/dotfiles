@@ -137,7 +137,7 @@ export PATH="/Users/taaofge1/.docker/bin:$PATH"
 #eval "$(pyenv init -)"
 #pyenv shell 2.7.18 
 
-#eval $(thefuck --alias)
+eval $(thefuck --alias)
 
 #hidutil property --set '{"UserKeyMapping":[
 #{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},
@@ -145,6 +145,8 @@ export PATH="/Users/taaofge1/.docker/bin:$PATH"
 #]}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
+if [[ "$(uname)" == "Darwin" ]]; then
+  ssh-add > /dev/null 2>&1
+fi
 # Created by `pipx` on 2024-01-30 08:58:47
 export PATH="$PATH:/Users/taaofge1/.local/bin"
