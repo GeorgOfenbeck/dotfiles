@@ -119,6 +119,8 @@ alias tf='terraform'
 alias tfa='terraform apply'
 alias tfp='terraform plan'
 alias gw='./gradlew'
+alias lg='lazygit'
+
 if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 fi
