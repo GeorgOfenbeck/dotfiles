@@ -38,9 +38,3 @@
   - description: install powerlevel10k
     command: |
       bash ~/.installp10k
-- shell:
-  - description: install tmux tpm
-    command: |
-      bash ~/
-    stdout: true
-    stdin: true
