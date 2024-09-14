@@ -126,14 +126,14 @@ if command -v bat >/dev/null 2>&1; then
 fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/taaofge1/.sdkman"
-[[ -s "/Users/taaofge1/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/taaofge1/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="~/.sdkman/"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
 PATH="/usr/local/share/dotnet/dotnet:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-export PATH="/Users/taaofge1/.docker/bin:$PATH"
+export PATH="~/.docker/bin:$PATH"
 
 #PATH=$(pyenv root)/shims:$PATH
 #export PYENV_ROOT="$HOME/.pyenv"
@@ -141,7 +141,7 @@ export PATH="/Users/taaofge1/.docker/bin:$PATH"
 #eval "$(pyenv init -)"
 #pyenv shell 2.7.18 
 
-eval $(thefuck --alias)
+#eval $(thefuck --alias)
 
 #hidutil property --set '{"UserKeyMapping":[
 #{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},
@@ -153,4 +153,8 @@ if [[ "$(uname)" == "Darwin" ]]; then
   ssh-add > /dev/null 2>&1
 fi
 # Created by `pipx` on 2024-01-30 08:58:47
-export PATH="$PATH:/Users/taaofge1/.local/bin"
+export PATH="$PATH:~/.local/bin"
+
+if [ -f "~/.linuxbrew/bin/brew" ]; then
+  eval "$(~/.linuxbrew/bin/brew shellenv)"
+fi
