@@ -180,4 +180,10 @@ autoload -U compinit && compinit
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-
+if command -v tmux &> /dev/null; then
+  # Check if we're already inside a tmux session
+  if [ -z "$TMUX" ]; then
+    # Attach to an existing session or create a new one
+    tmux attach-session -t default || tmux new-session -s default
+  fi
+fi
