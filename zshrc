@@ -77,7 +77,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf-tab zsh-autosuggestions zsh-syntax-highlighting)
+
+plugins=(git fzf-tab zsh-autosuggestions zsh-syntax-highlighting) 
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -86,6 +88,8 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+
+export EDITOR='vim'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -118,35 +122,13 @@ alias k='kubectl'
 alias tf='terraform'
 alias tfa='terraform apply'
 alias tfp='terraform plan'
-alias gw='./gradlew'
-alias lg='lazygit'
 
 if command -v bat >/dev/null 2>&1; then
   alias cat='bat'
 fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="~/.sdkman/"
-[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
-PATH="/usr/local/share/dotnet/dotnet:/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
 
-export PATH="~/.docker/bin:$PATH"
-
-#PATH=$(pyenv root)/shims:$PATH
-#export PYENV_ROOT="$HOME/.pyenv"
-#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init -)"
-#pyenv shell 2.7.18 
-
-#eval $(thefuck --alias)
-
-#hidutil property --set '{"UserKeyMapping":[
-#{"HIDKeyboardModifierMappingSrc":0x700000035,"HIDKeyboardModifierMappingDst":0x700000064},
-#{"HIDKeyboardModifierMappingSrc":0x700000064,"HIDKeyboardModifierMappingDst":0x700000035}
-#]}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -155,6 +137,46 @@ fi
 # Created by `pipx` on 2024-01-30 08:58:47
 export PATH="$PATH:~/.local/bin"
 
-if [ -f "~/.linuxbrew/bin/brew" ]; then
-  eval "$(~/.linuxbrew/bin/brew shellenv)"
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
+
+
+loadSecrets2Env() {
+ # Start gpg-agent
+ if [ -f ~/.gnupg/gpg-agent.conf ]; then
+  # Start gpg-agent if not running
+   if ! pgrep -x "gpg-agent" > /dev/null; then
+      eval $(gpg-agent --daemon)
+   fi
+
+  # Load the passphrase if not already loaded
+  KEYGRIP=$(gpg --list-keys --with-keygrip | grep Keygrip | awk '{print $3}')
+  if ! gpg-connect-agent "keyinfo --list" /bye | grep -q "$KEYGRIP"; then
+    echo "Enter your GPG passphrase:"
+    read -s PASSPHRASE
+    echo "$PASSPHRASE" | gpg-preset-passphrase --preset "$KEYGRIP"
+  fi
+ fi
+ 
+ # Fetch secrets from gopass and export them as environment variables
+  if command -v gopass >/dev/null 2>&1; then
+    export DOCKER_USERNAME=${DOCKER_USERNAME:-ofenbeck}
+    export DOCKER_PASSWORD=${DOCKER_PASSWORD:-$(gopass show -o websites/docker.com/ofenbeck)}
+
+    export MILL_SONATYPE_USERNAME=${MILL_SONATYPE_USERNAME:-$(gopass show -o websites/central.sonatype tokenUser)}
+    export MILL_SONATYPE_PASSWORD=${MILL_SONATYPE_PASSWORD:-$(gopass show -o websites/central.sonatype tokenPassword)}
+    export MILL_PGP_SECRET_BASE64=${MILL_PGP_SECRET_BASE64:-$(gopass show -o GPG/secret_base_64)}
+  fi
+}
+
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+autoload -U compinit && compinit
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
