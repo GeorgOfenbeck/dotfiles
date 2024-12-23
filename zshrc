@@ -176,14 +176,9 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 autoload -U compinit && compinit
 
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-if command -v tmux &> /dev/null; then
-  # Check if we're already inside a tmux session
-  if [ -z "$TMUX" ]; then
-    # Attach to an existing session or create a new one
-    tmux attach-session -t default || tmux new-session -s default
-  fi
-fi
