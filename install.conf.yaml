@@ -4,8 +4,9 @@
       relink: true
 - link:
     ~/.fonts: fonts
-    ~/.tmux: tmux
+    ~/.config/tmux: tmux
     ~/.gitconfig: gitconfig
+    ~/.config/starship: starship
 #    ~/.ssh/config:
 #        path: ssh/config
 #        create: true
@@ -16,7 +17,7 @@
       force: true
       path: zshrc
     ~/.p10k.zsh: p10k.zsh
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: ~/.config/tmux/tmux.conf
     ~/.hammerspoon:
       if: '[ `uname` = Darwin ]'
       path: hammerspoon
