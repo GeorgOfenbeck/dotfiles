@@ -91,9 +91,9 @@ export LANG=en_US.UTF-8
 
 export EDITOR='vim'
 
-#if command -v nvim >/dev/null 2>&1; then
+if command -v nvim >/dev/null 2>&1; then
   alias vim='nvim'
-#fi
+fi
 
 
 # Preferred editor for local and remote sessions
@@ -180,6 +180,7 @@ loadSecrets2Env() {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 autoload -U compinit && compinit
+
 
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
