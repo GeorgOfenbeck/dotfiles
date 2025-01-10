@@ -5,6 +5,7 @@
 - link:
     ~/.fonts: fonts
     ~/.config/tmux: tmux
+    ~/.config/nvim: nvim
     ~/.gitconfig: gitconfig
     ~/.config/starship: starship
 #    ~/.ssh/config:
@@ -16,12 +17,12 @@
     ~/.zshrc:
       force: true
       path: zshrc
-    ~/.p10k.zsh: p10k.zsh
+#    ~/.p10k.zsh: p10k.zsh
     ~/.tmux.conf: ~/.config/tmux/tmux.conf
     ~/.hammerspoon:
       if: '[ `uname` = Darwin ]'
       path: hammerspoon
-    ~/.installp10k: installp10k
+#   ~/.installp10k: installp10k
 - shell:
   - description: install fonts
     command: |
@@ -35,7 +36,3 @@
       fi
     stdout: true
     stdin: true
-- shell:
-  - description: install powerlevel10k
-    command: |
-      bash ~/.installp10k
