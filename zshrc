@@ -17,7 +17,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git fzf-tab zsh-autosuggestions zsh-syntax-highlighting) 
+plugins=(git fzf-tab zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode) 
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,10 +109,6 @@ loadSecrets2Env() {
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 autoload -U compinit && compinit
-
-
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-
 
 if command -v nvim >/dev/null 2>&1; then
   alias vim='nvim'
