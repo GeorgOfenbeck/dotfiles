@@ -17,12 +17,12 @@
     ~/.zshrc:
       force: true
       path: zshrc
-#    ~/.p10k.zsh: p10k.zsh
+    ~/.p10k.zsh: p10k.zsh
     ~/.tmux.conf: ~/.config/tmux/tmux.conf
     ~/.hammerspoon:
       if: '[ `uname` = Darwin ]'
       path: hammerspoon
-#   ~/.installp10k: installp10k
+   ~/.installp10k: installp10k
 - shell:
   - description: install fonts
     command: |
