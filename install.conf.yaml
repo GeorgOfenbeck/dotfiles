@@ -36,3 +36,9 @@
       fi
     stdout: true
     stdin: true
+- shell:
+  - description: install powerlevel10k
+    command: |
+      bash ~/.installp10k
+    stdout: true
+    stdin: true
