@@ -63,7 +63,6 @@ if command -v bat >/dev/null 2>&1; then
 fi
 
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [[ "$(uname)" == "Darwin" ]]; then
