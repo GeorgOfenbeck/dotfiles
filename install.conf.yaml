@@ -4,6 +4,7 @@
       relink: true
 - link:
     ~/.fonts: fonts
+    ~/.config/wezterm: wezterm
     ~/.config/tmux: tmux
     ~/.config/nvim: nvim
     ~/.gitconfig: gitconfig
